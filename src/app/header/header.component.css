@@ -1,0 +1,66 @@
+.header {
+    /* background-color: #F5F5F5; */
+    background-color: #ececec;
+}
+
+.hidden {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transition: height 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.shown {
+    height: 24px;
+    transition: all 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#btnAbout {
+    border: none;
+    background: none;
+}
+
+#infoAboutWrapper {
+    position: fixed;
+    margin-left: -10em;
+    margin-bottom: 10em;
+    z-index: 1000;
+    top: 67px;
+}
+
+#infoAbout {
+    margin: 0.5em 1.5em;
+    background-color: white;
+    padding: 0.5em;
+    border-radius: 0 0 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    font-style: italic;
+    max-width: 29em;
+    text-indent: 2em;
+}
+
+#btnCloseAbout {
+    border: none;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #ececec;
+    color: #5a5a5a;
+    position: absolute;
+    left: 2em;
+    top: 15px;
+    width: 25px;
+    height: 25px;
+    display: block;
+    padding-block: 1px;
+    padding-inline: 6px;
+    margin: 0;
+}
+
+/* For desktop: */
+@media (min-width: 768px) {
+    #infoAboutWrapper {
+        margin-left: 0;
+    }
+}

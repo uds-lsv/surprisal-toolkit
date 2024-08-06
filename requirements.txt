@@ -1,0 +1,7 @@
+Flask==2.2.2
+plotly==5.16.0
+conllu==4.5.3
+Flask-Session==0.6.0
+Werkzeug==2.2.2
+tensorflow
+tf-keras

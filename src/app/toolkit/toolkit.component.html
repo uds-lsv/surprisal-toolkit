@@ -1,0 +1,129 @@
+<div class="container-lg">
+  <div class="tk-main wrapper">
+    <div class="tabs">
+      
+      <!-- TAB 1: TOOLKIT FORM -->
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+        <label for="tab-1" class="tab-label">Input</label>
+
+        <div class="tk-input container tab-content">
+
+          <!--Local Models Form-->
+          <!-- <app-local-model (localModelEvent)="populateModelList($event)"></app-local-model> -->
+          
+          <!--Input Form-->
+          <form [formGroup]="toolkitForm" id="toolkitForm" (ngSubmit)="submitForm($event)" method="post" enctype="multipart/form-data">
+            
+            <!--Model Section-->
+            <div id="modelSection">
+              <!--Choose Model-->
+              <div class="container input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputModelLabel" for="inputModel">Model:</label>
+                  </div>
+                  <select class="custom-select" id="inputModel" name="inputModel" formControlName="model" required>
+                    <option value="" selected>Choose Model...</option>
+                    <option *ngFor="let model of modelList" [value]="model.name" [disabled]="!model.available">{{model.display || model.name}}<span *ngIf="model.source=='self-trained'"> (self-trained)</span></option>
+                  </select>
+
+                  <div class="toolTip">
+                    <svg class="infoIcon bi bi-info-circle" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                    <p class="toolTipText">Models are provided through Hugging Face. See <i class="tooltipEmphasis">huggingface.co/models</i> for more info on a model listed here.</p>
+                  </div>
+              </div>
+
+              <!--Show Model Info-->
+              <!-- <app-model-info [model]="model"></app-model-info> -->
+            </div>
+
+            <!--Choose Additional Args-->
+            <div class="container input-group mb-3" id="additionalOptions">
+              <!--Choose Batch Size-->
+              <!-- <div class="input-group-prepend d-flex additionalOption">
+                <label class="input-group-text" for="inputBatchSize">Batch size:</label>
+                <input type="number" id="inputBatchSize" name="batchSize" formControlName="batchSize" value="10" min="1">
+              </div> -->
+              <!--Choose If Prepend Token-->
+              <div class="input-group-prepend d-flex additionalOption">
+                <label class="input-group-text" for="inputPrependToken">Prepend token:</label>
+                <input type="checkbox" id="inputPrependToken" name="prependToken" formControlName="prependToken">
+                
+                <div class="toolTip">
+                  <svg class="infoIcon bi bi-info-circle" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                  </svg>
+                  <p class="toolTipText">Prepend a start token to the text if the model tokenizer doesn't include a start-of-sequence symbol. This is needed for GPT-2 (<i class="tooltipEmphasis">gpt2</i>) models.</p>
+                </div>
+              </div>
+            </div>
+
+            <!--Upload Text File-->
+            <div class="container input-group mb-3" id="fileContainer">
+              <div class="file">
+                <input type="file" class="file-input" name="file" id="inputFile" (change)="uploadFile($event)" #fileUpload>
+
+                <div class="file-upload">
+                  <button class="upload-btn input-group-text">
+                    <label class="file-label" for="inputFile">Choose file</label>
+                  </button>
+
+                  <div class="toolTip">
+                    <svg class="infoIcon bi bi-info-circle" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                    <p class="toolTipText">Files can be of type ".txt" or ".conllu" and must be within 500 MB.</p>
+                  </div>
+
+
+                  <span class="file-name">{{filename || ""}}</span>
+                  
+                  <div *ngIf="file" class="file-remove">
+                    <button id="btnRemoveFile" class="upload-btn input-group-text" (click)="fileUpload.value=null; removeFile();">
+                      <label class="file-label">x</label>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!--Enter Text-->
+            <div class="container">
+                <div id="inputTextFormGroup" class="form-group">
+                  <label for="inputText">Or enter text:</label>
+                  <textarea class="form-control" rows="7" id="inputText" placeholder="Enter one sentence or string of context per line..." name="sentences" formControlName="sentences" #textBox></textarea>
+                </div>
+            </div>
+
+            <!--Submit Text to Compute Surprisal-->
+            <button class="btn btn-primary" id="submitText" [disabled]="!(toolkitForm.valid && (textBox.value || fileUpload.value))" type="submit" (keydown.enter)="confirmSubmit()" (click)="confirmSubmit()">Compute Surprisal</button>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- TAB 2: OUTPUT PREVIEW AND FILE DOWNLOAD -->
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" [checked]="submitConfirmed || outputData['results_preview']">
+        <label for="tab-2" class="tab-label">Results</label>
+        <!--Show Output-->
+        <app-output [model]="model" [outputData]="outputData" [progress]="progressUpdate" class="tab-content"></app-output>
+      </div>
+
+      <!-- TAB 3: PLOTS VISUALIZATION -->
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+        <label for="tab-3" class="tab-label">Plots</label>
+        <!--Show Plots-->
+        <app-plots [model]="model" [outputData]="outputData" [progress]="progressUpdate" class="tab-content"></app-plots>
+      </div>
+      
+    </div>
+  </div>
+</div> 

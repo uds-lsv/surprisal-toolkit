@@ -1,0 +1,84 @@
+/* Upload Local Model Formatting */
+.hidden {
+    height: 0;
+    overflow: hidden;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#btnShowLocalModel {
+    text-decoration: none;
+    padding-left: 0;
+}
+
+#btnShowLocalModel:focus {
+    box-shadow: none;
+}
+
+#localModelContainer {
+    background: #ececec;
+    padding: 0.5em;
+    border-radius: 2px;
+}
+
+[class^="icon"] {
+    font-style: normal;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.icon-arrow-below {
+    margin: 0 5px;
+    top: -3px;
+    position: relative;
+    rotate: 180deg;
+    display: inline-block;
+}
+
+.icon-arrow-above {
+    margin: 0 5px;
+    top: 2px;
+    position: relative;
+    rotate: 0deg;
+    display: inline-block;
+}
+
+.icon-arrow-right {
+    position: relative;
+    rotate: 90deg;
+    display: inline-block;
+    left: -0.1em;
+}
+
+.icon-arrow-below::before, .icon-arrow-above::before, .icon-arrow-right::before {
+    content: "⌃";
+}
+
+#infoLocalModel {
+    font-size: smaller;
+}
+
+.info {
+    font-style: italic;
+}
+
+pre#localModelFileStructure {
+    display: block;
+    overflow: auto;
+    font-size: .875em;
+    font-family: var(--bs-font-monospace);
+    margin: 0;
+}
+
+#submitLocalModels {
+    font-family: inherit;
+}
+
+#inputFolderPathContainer {
+    margin: 0.5em;
+    margin-left: 0;
+}
+
+label.input-group-text {
+    margin-right: 0.5em;
+}

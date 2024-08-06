@@ -1,0 +1,236 @@
+.tk-main {
+    margin-bottom: 2em;
+}
+
+.tk-input.container.tab-content {
+    max-width: 100%;
+}
+
+#toolkitForm {
+    margin-top: 1.5rem;
+}
+
+#submitText {
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+label.input-group-text {
+    margin-right: 0.5em;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+}
+
+.file-name {
+    margin: 0 1em;
+    font-style: italic;
+}
+
+#fileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#btnRemoveFile:hover {
+    background-color: #ededed;
+}
+
+label.file-label:hover {
+    cursor: pointer;
+}
+
+form select:hover {
+    cursor: pointer;
+}
+
+.container #additionalOptions {
+    margin-top: -0.5em;
+}
+
+select#inputModel {
+    height: 2.3em;
+    border-radius: 2px;
+}
+
+label#inputModelLabel {
+    margin-bottom: 0.5em;
+}
+
+#inputTextFormGroup label {
+    margin-left: 3px;
+}
+
+#inputText {
+    color: #5a5a5a;
+}
+
+input#inputBatchSize {
+    padding: 5px;
+    width: 5em;
+    height: 2.3em;
+    margin-right: 1vw;
+}
+
+input:invalid {
+    background-color: #fce5db;
+    border: none;
+    outline: 2px solid #c14813;
+    border-radius: 2px;
+    margin: 2px;
+}
+
+div.additionalOption {
+    margin-bottom: 0.5rem;
+}
+
+#inputPrependToken {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.3em;
+    accent-color: rgb(120, 194, 173);
+}
+
+.toolTip {
+    position: relative;
+}
+
+.infoIcon {
+    margin: 11px !important;
+    background: #f7f7f9;
+    border-radius: 9px !important;
+    color: #888888;
+}
+
+.infoIcon:hover {
+    cursor: help;
+    color: #78c2ad;
+}
+
+.toolTipText {
+    visibility: hidden;
+    font-size: 12px;
+    background-color: whitesmoke;
+    color: #5a5a5a;
+    padding: 5px;
+    top: 5px;
+    display: inline-block;
+    position: absolute;
+    width: 215%;
+    z-index: 1;
+    font-style: italic;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.tooltipEmphasis {
+    font-weight: bold;
+}
+
+.infoIcon:hover + .toolTipText, .infoIcon:active + .toolTipText, .infoIcon:focus + .toolTipText {
+    visibility: visible;
+  }
+
+/* Tabs Formatting */
+/* Tabs style credit: https://codepen.io/alvarotrigo/pen/QWqXYmG */
+.wrapper {
+    max-width: 50rem;
+    width: 100%;
+    margin: 0 auto;
+    height: max-content;
+}
+.tabs {
+    position: relative;
+    background: #5a5a5a;
+    margin-bottom: 30rem;
+}
+.tabs::before,
+.tabs::after {
+    content: "";
+    display: table;
+}
+.tabs::after {
+    clear: both;
+}
+.tab {
+    float: left;
+}
+.tab-switch {
+    display: none;
+}
+.tab-label {
+    position: relative;
+    display: block;
+    line-height: 2.75em;
+    height: 3em;
+    padding: 0 1.618em;
+    background: #5a5a5a;
+    border-right: 0.125rem solid #3f3e3e;
+    color: #fff;
+    cursor: pointer;
+    top: 0;
+    transition: all 0.25s;
+}
+.tab-label:hover {
+    top: -0.25rem;
+    transition: top 0.25s;
+}
+.tab-content {
+    height: fit-content;
+    position: absolute;
+    z-index: 1;
+    top: 2.75em;
+    left: 0;
+    padding: 1rem;
+    background: #fff;
+    color: #2c3e50;
+    opacity: 0;
+    transition: all 0.35s;
+    height: 34em;
+    width: 100%;
+    overflow: scroll;
+}
+.tab-switch:checked + .tab-label {
+    background: #78c2ad;;
+    color: white;
+    border-bottom: 0;
+    border-right: 0.125rem solid #78c2ad;
+    transition: all 0.35s;
+    z-index: 1;
+    top: -0.0625rem;
+}
+.tab-switch:checked#tab-2 + .tab-label {
+    background: #dcab5e;
+    border-right: 0.125rem solid #cb8d2b;
+}
+
+.tab-switch:checked#tab-3 + .tab-label {
+    background: #b986a6;
+    border-right: 0.125rem solid #9f718e;
+}
+
+.tab-switch:checked + label + .tab-content {
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.35s;
+} 
+
+@media (min-width: 768px) {
+    /* For desktop: */
+    .tab-content {
+        padding: 1.618rem;
+    }
+    .toolTipText {
+        width: 20em;
+        max-width: 25em;
+    }
+}

@@ -1,0 +1,29 @@
+.title {
+    padding-bottom: 1em;
+}
+
+app-toolkit {
+    min-width: 75%;
+    width: 100%;
+    padding-bottom: 5em;
+}
+
+footer {
+    padding: 1em;
+    color: inherit;
+    position: relative;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.content {
+    display: flex;
+    margin: 3.5em auto 3.5em;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }

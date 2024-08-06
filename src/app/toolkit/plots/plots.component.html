@@ -1,0 +1,22 @@
+<div class="tk-plots">
+    <div *ngIf="progress" id="progress-box" class="container">
+
+      <p id="progress-text">{{progress}}<span id="progress-dots"> . . .</span></p>
+    </div>
+    
+    <div *ngIf="!isEmpty(outputData)" class="tk-plots">
+        <div id="plots-box" class="container">
+            <div id="plots-heading">
+                <h2>Plot results</h2>
+            </div>
+            <div id="plots-figure" class="plots-container">
+            </div>
+            <div *ngFor="let sentence of outputData['sentences']; index as i">
+                <label>
+                    <input type="checkbox" [value]="i" (change)="updateSelectedSentences($event)" [checked]="i === 0">
+                    {{ i + 1 }}. {{ truncateSentence(sentence, 30) }}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

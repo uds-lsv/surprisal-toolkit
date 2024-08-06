@@ -1,0 +1,61 @@
+#select-sentence {
+    max-width: 100%;
+}
+
+#select-sentences {
+    max-width: 100%;
+    height: auto; /* Ensure visibility for multi-select */
+    background-color: #FFF;
+    border: 1px solid #CCC;
+}
+
+#plots-figure {
+    background-color: #F5F5F5;
+    height: 400px; /* Ensure a large enough height for clarity */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto;
+}
+
+.plots-container {
+    width: 100%; /* Full width for single large plot */
+}
+
+/* Progress Text Styling */
+#progress-box {
+    display: inline-flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+#progress-text {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0.5em;
+    display: flex;
+    /* width: fit-content; */
+    margin: 0 auto;
+    letter-spacing: 0.75px;
+    white-space: nowrap;
+    animation: 
+        fade-in 5s;
+}
+
+#progress-dots {
+    display: flex;
+    overflow: hidden;
+    color: transparent;
+    animation: typing-dots 1s steps(6, end);
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+/* Typing effect credit: https://css-tricks.com/snippets/css/typewriter-effect/ */
+@keyframes fade-in { 
+    from { color: #88888829 }
+    to { color: #888 }
+}
+@keyframes typing-dots {
+    from { width: 0; color: #888; }
+    to { width: 22%; color: #888; }
+}

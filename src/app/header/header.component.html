@@ -1,0 +1,22 @@
+
+<div class="header" role="banner">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link">Surprisal Toolkit</a></li>
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item dropdown">
+          <button (click)="toggleAbout($event)" id="btnAbout"><a class="nav-link">About</a></button>
+          <div [class.hidden]="!showAbout" [class.shown]="showAbout" id="infoAboutWrapper" class="dropdown-content">
+            <p id="infoAbout">
+              <button (click)="toggleAbout($event)" id="btnCloseAbout" type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+              The Surprisal Toolkit, or LM Toolkit, is a web application for calculating and visualizing 
+              surprisal values from language models. The Toolkit interfaces with the <i>languagemodels</i> Python library
+              developed in the <a href="https://www.lsv.uni-saarland.de/" target="_blank">Spoken Language Systems (LSV)</a> research group at Saarland University.</p>
+          </div> 
+        </li>
+      </ul>
+    </header>
+  </div>
+

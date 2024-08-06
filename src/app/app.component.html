@@ -1,0 +1,93 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * *  Styles left over from placeholder template   * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    .terminal {
+      width: 100%;
+    }
+  }
+</style>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * *  End styles   * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<!-- Navigation Banner -->
+<app-header></app-header>
+
+<!-- Main Content -->
+<div class="content" role="main">
+  <h1 class="title">{{ title }}</h1>
+
+  <!-- Toolkit -->
+  <app-toolkit [DEBUG]="DEBUG"></app-toolkit>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p><a href="https://www.lsv.uni-saarland.de/" target="_blank">© 2024 Spoken Language Systems, Saarland University</a></p>
+</footer>
+
+<router-outlet></router-outlet>

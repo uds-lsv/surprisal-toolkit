@@ -1,0 +1,45 @@
+<form [formGroup]="localModelForm" id="localModelForm" (ngSubmit)="submitForm($event)" method="post" enctype="multipart/form-data">
+    
+    <!--Upload Pre-Trained Models (for use in local project) -->
+    <div class="container input-group mb-3">
+        <button id="btnShowLocalModel" type="button" class="btn btn-link" (click)="toggleLocalModelContainer($event)">Upload local model<i [class.icon-arrow-below]="!showLocalModelContainer" [class.icon-arrow-above]="showLocalModelContainer"></i></button>
+        
+        <div [class.hidden]="!showLocalModelContainer" class="container" id="localModelContainer" localModelContent>
+        
+            <div id="infoLocalModel">
+                <p class="info">Model folders should minimally contain the following structure and file names (see wikitext-103/ as a guide). Models should be trained with the <a href="https://repos.lsv.uni-saarland.de/b4/languagemodels/-/tree/development" target="_blank">LSV language modeling toolkit</a>.</p>
+                <pre id="localModelFileStructure">
+local_model/
+    config.json
+    pytorch_model.bin
+    tokenizer.json
+                </pre>
+            </div>
+
+            <!-- <div class="input-group-prepend mb-3">
+                <input type="file" class="form-control" webkitdirectory="true" (change)="uploadModelFolder($event)" id="modelFolder" name="modelFolder" formControlName="modelFolder" directory/>
+                <button class="upload-btn input-group-text">
+                <label class="file-label" for="modelFolder">Choose file</label>
+                </button>
+            </div> -->
+            
+            <div class="container" id="localModelInputContainer">
+                
+                <div class="d-flex justify-content-left align-items-center">
+                    <!--Enter Folder Path-->
+                    <div class="input-group-mb-3" id="inputFolderPathContainer">
+                        <input type="text" class="form-control" size="50" id="inputFolderPath" placeholder="Enter the absolute path to the model folder(s)" name="modelFolderPath" formControlName="modelFolderPath" #folderPath>
+                    </div>
+
+                    <!--Submit Local Models-->
+                    <button class="btn btn-primary" id="submitLocalModels" [disabled]="!(localModelForm.valid && folderPath.value)" type="submit" (keydown.enter)="confirmSubmit()" (click)="confirmSubmit()">
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </div>
+                
+            </div>
+        
+        </div>
+    </div>
+
+</form>

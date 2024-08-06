@@ -1,0 +1,81 @@
+<div class="tk-output">
+    <div *ngIf="progress" id="progress-box" class="container">
+      <p id="progress-text">{{progress}}<span id="progress-dots"> . . .</span></p>
+    </div>
+    
+    <div *ngIf="!isEmpty(outputData)" class="tk-content">
+      
+      <!-- Preview -->
+      <div id="output-box" class="container">
+        <div id="output-heading">
+          <h2>Preview of results:</h2>
+          <p>Model: {{model || ""}}</p>
+        </div>
+        <table id="output-table">
+          <thead>
+          </thead>
+          <!-- <tr>
+            <td>{{sentences || ""}}</td>
+          </tr> -->
+          <!-- <ng-container *ngIf="outputData['sentences']">
+            <tr *ngFor="let sentence of outputData['sentences']">
+              <td> {{ sentence }} </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="outputData['sentences']">
+            <tr *ngFor="let sentence of outputData['sentences']">
+              <td> {{ sentence }} </td>
+            </tr>
+          </ng-container> -->
+          <ng-container *ngIf="outputData['results_preview']">
+            <div id="output-tbody">
+              <tr id="columns">
+                <td>token</td>
+                <td>suprisal</td>
+              </tr>
+              <ng-container *ngFor="let sentence of outputData['results_preview'].slice(0,5)">
+                <tr>
+                  <td class="separator">----------------------</td>
+                </tr>
+                <tr *ngFor="let word_score of sentence; index as i;" [class.endOfSentence]="i === sentence.length-1">
+                  <td> {{ word_score[0] }} </td>
+                  <td> {{ word_score[1] }} </td>
+                </tr>
+              </ng-container>
+              <tr>
+                <td class="separator">----------------------</td>
+              </tr>
+              <ng-container *ngIf="outputData['results_preview'].length > 5">
+                <tr *ngFor="let dot of [].constructor(3)">
+                  <td> . </td>
+                  <td> . </td>
+                </tr>
+                <tr id="continueText">
+                  Continues for {{outputData['num_sentences_results'] - 5}} sentences in {{outputData['num_files']}} file(s).
+                </tr>
+              </ng-container>
+            </div>
+          </ng-container>
+        </table>
+      </div>
+      <!-- end preview div -->
+      
+      <!-- Put file download div here after progress testing -->
+      <div id="file-download" class="container">
+        <!-- <a *ngIf="outputData['num_files']==1; else zipFileDownload" appHrefData [outputData]="outputData" id="btnFileDownload" class="btn btn-secondary" download="results.csv">
+          Download Results (results.tsv)
+        </a> -->
+        <a *ngIf="outputData['num_files']==1; else zipFileDownload" [href]="'user/'+outputData['output_file_name']" id="btnFileDownload" class="btn btn-secondary" [download]="outputData['output_file_name']">
+          Download Results ({{outputData['output_file_name']}})
+        </a>
+        <ng-template #zipFileDownload>
+          <a href="user/results.zip" download="results.zip" id="btnFileDownload" class="btn btn-secondary">
+            Download Results (results.zip) 
+          </a>
+        </ng-template>
+      </div>
+      <!-- end file download div -->
+      
+    </div>
+
+  </div>
