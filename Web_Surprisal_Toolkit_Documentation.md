@@ -4,7 +4,9 @@
 
 The **Web-Surprisal-Toolkit** is a web application designed to compute the surprisal of sentences using language models. It provides both file and string input methods for evaluation.
 
-## Backend Structure
+## Backend Structure (`backend/`)
+
+*Located in `backend/`.*
 
 ### Functions
 
@@ -126,7 +128,9 @@ The **Web-Surprisal-Toolkit** is a web application designed to compute the surpr
 - **User Storage Settings**
   - `USER_STORAGE_HOURS`, `USERS_PATH`, `FLASK_SESSIONS_PATH`
 
-## Frontend Structure
+## Frontend Structure (`src/`)
+
+*Located in `src/`.*
 
 ### AppRoutingModule
 

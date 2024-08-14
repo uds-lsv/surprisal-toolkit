@@ -4,10 +4,17 @@ The Surprisal Toolkit is a web-based user interface for computing surprisal meas
 
 Developed using: [Angular 14.2.2]((https://github.com/angular/angular-cli)) frontend, Python Flask 2.2.2 backend.
 
----
-# How to use locally
+**Contents**
 
-## Part 1: Setting up.
+- [How to set up locally](#how-to-use-locally)
+- [Hosting](#hosting)
+- [Paper & Teaching Materials](#paper-and-teaching-materials)
+- [Function documentation](Web_Surprisal_Toolkit_Documentation.md)
+
+---
+## How to use locally
+
+### Part 1: Setting up.
 
 **(1)** Create an empty project folder. Inside this folder, clone (*if contributing*) or download (*if using only*) the **surprisal-toolkit** and [languagemodels](https://github.com/uds-lsv/languagemodels) repositories:
 
@@ -40,7 +47,7 @@ With the virutal environment activated, install the requirements in the followin
 **(6)** Install npm dependencies: `npm install .`
 
 
-## Part 2: Running the web app. :balloon:
+### Part 2: Running the web app. :balloon:
 
 1. Activate the virtual environment, if not done so already: `source languagemodels-venv/bin/activate` or `conda activate languagemodels`.
 
@@ -59,7 +66,7 @@ With the virutal environment activated, install the requirements in the followin
 (Use Control+C to stop running the application.)
 
 
-## Angular development server - *how to test Angular frontend only*
+### Angular development server - *how to test Angular frontend only*
 
 *Note: this will not connect to functionality in Python back-end files.*
 
@@ -72,11 +79,11 @@ With the virutal environment activated, install the requirements in the followin
 (Use Control+C to stop running the application.)
 ___
 
-# Hosting
+## Hosting
 
 The application can also be hosted on a web server. We use Apache 2.4 and mod_wsgi 4.7.1. As a reference, files for configuring the Flask application are stored under `\server`. 
 
-# Paper and Teaching Materials
+## Paper and Teaching Materials
 
 This code is described in our paper, ["An Interactive Toolkit for Approachable NLP"](https://aclanthology.org/2024.teachingnlp-1.17.pdf) by AriaRay Brown, Julius Steuer, Marius Mosbach, and Dietrich Klakow, presented in the TeachNLP Workshop at ACL 2024.
 
