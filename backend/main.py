@@ -1,5 +1,4 @@
 # Load packages
-import uuid
 from flask import Flask, render_template, jsonify, request, send_file, session, url_for
 from flask_session import Session
 from werkzeug.utils import secure_filename

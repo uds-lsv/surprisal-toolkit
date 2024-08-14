@@ -1,19 +1,18 @@
-# SurprisalToolkit
+# Surprisal Toolkit
 
-Web-based user interface for working with the [languagemodels](https://repos.lsv.uni-saarland.de/b4/languagemodels/) toolkit.  
+The Surprisal Toolkit is a web-based user interface for computing surprisal measurements over text through the [languagemodels](https://github.com/uds-lsv/languagemodels) toolkit.
 
-Angular 14.2.2 frontend, Python Flask 2.2.2 backend.
+Developed using: [Angular 14.2.2]((https://github.com/angular/angular-cli)) frontend, Python Flask 2.2.2 backend.
 
 ---
 # How to use locally
 
 ## Part 1: Setting up.
 
-**(1)** Create an empty project folder. Inside this folder, clone (*if contributing*) or download (*if using only*) the 2 repositories:
+**(1)** Create an empty project folder. Inside this folder, clone (*if contributing*) or download (*if using only*) the **surprisal-toolkit** and [languagemodels](https://github.com/uds-lsv/languagemodels) repositories:
 
-- **web-surprisal-toolkit dev** repository.
-- **[languagemodels development](https://repos.lsv.uni-saarland.de/b4/languagemodels/-/tree/development)** repository.
-
+- `git clone https://github.com/uds-lsv/surprisal-toolkit.git`
+- `git clone https://github.com/uds-lsv/languagemodels.git`
 
 **(2)** Inside the main folder, create and activate a virtual environment using either:
 
@@ -29,12 +28,14 @@ Angular 14.2.2 frontend, Python Flask 2.2.2 backend.
 	- Activate the virtual environment: `conda activate languagemodels`
 	- Upgrade pip: `pip install --upgrade pip`
 
+With the virutal environment activated, install the requirements in the following steps.
+
 
 **(3)** Install the appropriate version of PyTorch: https://pytorch.org/get-started/locally/
 
 **(4)** Install the languagemodels package & requirements: `pip install -e languagemodels`
 
-**(5)** Install the requirements for web-surprisal-toolkit: `pip install -r web-surprisal-toolkit/requirements.txt`
+**(5)** Install the requirements for surprisal-toolkit: `pip install -r surprisal-toolkit/requirements.txt`
 
 **(6)** Install npm dependencies: `npm install .`
 
@@ -43,13 +44,13 @@ Angular 14.2.2 frontend, Python Flask 2.2.2 backend.
 
 1. Activate the virtual environment, if not done so already: `source languagemodels-venv/bin/activate` or `conda activate languagemodels`.
 
-2. From the command line, navigate to folder *web-surprisal-toolkit*.
+2. From the command line, navigate to folder *surprisal-toolkit*.
 
 3. Run `ng build --configuration production --build-optimizer`. 
 
     *(This creates the `dist/` folder in the Angular project directory, from which the Flask backend renders the built files.)*
 
-	*This command only needs to be run once. If changes are made to `web-surprisal-toolkit/src/`, run again to update `dist/`.*
+	*This command only needs to be run once. If changes are made to `surprisal-toolkit/src/`, run again to update `dist/`.*
 
 4. Run `python3 backend/main.py`.
 
@@ -58,11 +59,9 @@ Angular 14.2.2 frontend, Python Flask 2.2.2 backend.
 (Use Control+C to stop running the application.)
 
 
----
+## Angular development server - *how to test Angular frontend only*
 
-## Development server - *testing Angular only*
-
-*Note: this will not connect to functionality in Python backend files.*
+*Note: this will not connect to functionality in Python back-end files.*
 
 1. Navigate to parent folder.
 
@@ -73,6 +72,12 @@ Angular 14.2.2 frontend, Python Flask 2.2.2 backend.
 (Use Control+C to stop running the application.)
 ___
 
+# Hosting
 
+The application can also be hosted on a web server. We use Apache 2.4 and mod_wsgi 4.7.1. As a reference, files for configuring the Flask application are stored under `\server`. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+# Paper and Teaching Materials
+
+This code is described in our paper, ["An Interactive Toolkit for Approachable NLP"](https://aclanthology.org/2024.teachingnlp-1.17.pdf) by AriaRay Brown, Julius Steuer, Marius Mosbach, and Dietrich Klakow, presented in the TeachNLP Workshop at ACL 2024.
+
+The Surprisal Toolkit can be used as a resource for teaching information theory along with the calculation of surprisal from large language models. We share our [teaching materials](https://github.com/uds-lsv/surprisal-toolkit-teaching-materials) here for your interest.
