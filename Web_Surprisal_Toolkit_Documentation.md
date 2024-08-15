@@ -1,8 +1,8 @@
-# Web-Surprisal-Toolkit Documentation
+# Surprisal-Toolkit Documentation
 
 ## Overview
 
-The **Web-Surprisal-Toolkit** is a web application designed to compute the surprisal of sentences using language models. It provides both file and string input methods for evaluation.
+The **Surprisal Toolkit** is a web application designed to compute the surprisal of sentences using language models. It provides both file and string input methods for evaluation.
 
 ## Backend Structure (`backend/`)
 

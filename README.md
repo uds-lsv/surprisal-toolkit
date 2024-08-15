@@ -6,13 +6,13 @@ Developed using: [Angular 14.2.2]((https://github.com/angular/angular-cli)) fron
 
 **Contents**
 
-- [How to set up locally](#how-to-use-locally)
+- [How to Use Locally](#how-to-use-locally)
 - [Hosting](#hosting)
 - [Paper & Teaching Materials](#paper-and-teaching-materials)
-- [Function documentation](Web_Surprisal_Toolkit_Documentation.md)
+- [Function Documentation](Web_Surprisal_Toolkit_Documentation.md)
 
 ---
-## How to use locally
+## How to Use Locally
 
 ### Part 1: Setting up.
 
@@ -44,7 +44,7 @@ With the virutal environment activated, install the requirements in the followin
 
 **(5)** Install the requirements for surprisal-toolkit: `pip install -r surprisal-toolkit/requirements.txt`
 
-**(6)** Install npm dependencies: `npm install .`
+**(6)** *Only* if developing or modifying with Angular: Navigate to folder *surprisal-toolkit*. Install npm dependencies: `npm install .`
 
 
 ### Part 2: Running the web app. :balloon:
@@ -53,7 +53,7 @@ With the virutal environment activated, install the requirements in the followin
 
 2. From the command line, navigate to folder *surprisal-toolkit*.
 
-3. Run `ng build --configuration production --build-optimizer`. 
+3. *Optional.* (If needed to re-compile `dist/` after changes. Otherwise, skip.) Run `ng build --configuration production --build-optimizer`. 
 
     *(This creates the `dist/` folder in the Angular project directory, from which the Flask backend renders the built files.)*
 
